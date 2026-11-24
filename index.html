@@ -13,7 +13,6 @@
   <style>
     :root {
       --bg-olive: #d5d7c3;
-      --bg-olive-deep: #c5c8b0;
       --paper: #fdfdfb;
       --ink: #363e34;
       --ink-soft: #667062;
@@ -86,134 +85,9 @@
 
     .hero-subtitle {
       max-width: 780px;
-      margin: 0 auto 22px;
+      margin: 0 auto;
       font-size: 15.5px;
       color: var(--ink-soft);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .btn {
-      font-family: inherit;
-      font-size: 13.5px;
-      font-weight: 500;
-      padding: 10px 18px;
-      border-radius: 10px;
-      border: 1px solid var(--border-soft);
-      background: var(--paper);
-      color: var(--ink);
-      cursor: pointer;
-      transition: all 0.22s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      text-decoration: none;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(34, 42, 32, 0.09);
-      border-color: rgba(78, 99, 73, 0.35);
-    }
-
-    .btn-primary {
-      background: var(--accent-green);
-      color: #ffffff;
-      border-color: var(--accent-green);
-    }
-
-    .btn-primary:hover {
-      background: #3f523b;
-      border-color: #3f523b;
-    }
-
-    .editor-panel {
-      display: none;
-      background: rgba(253, 253, 251, 0.94);
-      border: 1px solid var(--border-soft);
-      border-radius: 18px;
-      padding: 24px;
-      margin-bottom: 32px;
-      box-shadow: 0 14px 30px rgba(34, 42, 32, 0.08);
-    }
-
-    .editor-panel.open {
-      display: block;
-      animation: fadeSlide 0.25s ease;
-    }
-
-    @keyframes fadeSlide {
-      from {
-        opacity: 0;
-        transform: translateY(-8px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .editor-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 18px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border-soft);
-    }
-
-    .editor-header h3 {
-      font-size: 16px;
-      color: var(--ink);
-    }
-
-    .editor-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-    }
-
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .field label {
-      font-size: 12.5px;
-      font-weight: 500;
-      color: var(--ink-soft);
-    }
-
-    .field input,
-    .field textarea {
-      font-family: inherit;
-      font-size: 13.5px;
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid rgba(78, 99, 73, 0.24);
-      background: #ffffff;
-      color: var(--ink);
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .field textarea {
-      min-height: 78px;
-      resize: vertical;
-    }
-
-    .field input:focus,
-    .field textarea:focus {
-      outline: none;
-      border-color: var(--accent-green);
-      box-shadow: 0 0 0 3px rgba(78, 99, 73, 0.12);
     }
 
     .suite-stage {
@@ -556,142 +430,69 @@
         padding: 24px 18px;
       }
     }
-
-    @media print {
-      body {
-        background: #ffffff;
-      }
-
-      .hero-actions,
-      .editor-panel,
-      .modal-backdrop,
-      .no-print {
-        display: none !important;
-      }
-
-      .page-wrapper {
-        padding: 0;
-        max-width: 100%;
-      }
-
-      .suite-stage {
-        background: #ffffff;
-        border: none;
-        box-shadow: none;
-        padding: 10px 0;
-      }
-
-      .card-frame {
-        box-shadow: none;
-        border: 1px solid #d5d7c3;
-        break-inside: avoid;
-      }
-    }
   </style>
 </head>
 <body>
   <div class="page-wrapper">
     <header class="hero-banner">
       <div class="badge">خمسة وثلاثون عاماً من العطاء · الدرجة الأولى في التعليم · السودان</div>
-      <h1 class="hero-title" id="heroTitle">إلى أمي وأستاذتي إنصاف موسى محمد</h1>
-      <p class="hero-subtitle" id="heroSubtitle">
+      <h1 class="hero-title">إلى أمي وأستاذتي إنصاف موسى محمد</h1>
+      <p class="hero-subtitle">
         في يوم تتويجك بالدرجة الأولى في التعليم، أرفع رأسي عالياً بما قضيته من خمسة وثلاثين عاماً في المدارس الحكومية بالسودان، زارعةً للعلم والوقار في نفوس أجيالٍ لا تُحصى، وبانيةً لبيتٍ يعتز باسمك في كل محفل.
       </p>
-      <div class="hero-actions">
-        <button class="btn btn-primary" type="button" id="toggleEditorBtn">تعديل التفاصيل والكلمات</button>
-        <a class="btn" href="#tributeSection">كلمات الاعتزاز والوفاء</a>
-        <button class="btn" type="button" onclick="window.print()">طباعة الصفحة</button>
-      </div>
     </header>
-
-    <section class="editor-panel" id="editorPanel" aria-label="تخصيص كلمات التهنئة">
-      <div class="editor-header">
-        <h3>تخصيص النصوص والتوقيع</h3>
-        <button class="btn" type="button" id="resetDefaultsBtn">استعادة النص الأصلي</button>
-      </div>
-      <div class="editor-grid">
-        <div class="field">
-          <label for="inputHonoree">اسم الأستاذة المكرّمة</label>
-          <input type="text" id="inputHonoree" value="الأستاذة إنصاف موسى محمد" />
-        </div>
-        <div class="field">
-          <label for="inputSender">الاسم في التوقيع</label>
-          <input type="text" id="inputSender" value="عبدالواحد عماد الدين عبدالواحد" />
-        </div>
-        <div class="field">
-          <label for="inputYears">سنوات الخدمة والمسيرة</label>
-          <input type="text" id="inputYears" value="٣٥ عاماً في المدارس الحكومية · السودان" />
-        </div>
-        <div class="field">
-          <label for="inputRank">الدرجة المستحقة والمناسبة</label>
-          <input type="text" id="inputRank" value="الدرجة الأولى في التعليم" />
-        </div>
-        <div class="field">
-          <label for="inputCardOne">نص البطاقة الأولى</label>
-          <textarea id="inputCardOne">مقامٌ رفيعٌ يليق بعمرٍ أُفني في التعليم</textarea>
-        </div>
-        <div class="field">
-          <label for="inputCardTwo">نص البطاقة الثانية</label>
-          <textarea id="inputCardTwo">خمسة وثلاثون عاماً من العطاء الصادق في مدارس الوطن الحكومية وصولاً إلى الدرجة الأولى في التعليم</textarea>
-        </div>
-        <div class="field">
-          <label for="inputCardThree">نص البطاقة الرابعة</label>
-          <textarea id="inputCardThree">فخري بك لا يحدّه كلام، وأنتِ تاجٌ على رأسي ما حييت</textarea>
-        </div>
-      </div>
-    </section>
 
     <main class="suite-stage">
       <div class="suite-grid">
-        <article class="card-frame card-portrait" data-modal-target="card1" title="عرض البطاقة الأولى">
+        <article class="card-frame card-portrait">
           <div class="card-content">
-            <span class="card-kicker" id="c1Years">٣٥ عاماً في المدارس الحكومية · السودان</span>
-            <div class="card-script-main ar-script" id="c1Title">الدرجة الأولى</div>
+            <span class="card-kicker">٣٥ عاماً في المدارس الحكومية · السودان</span>
+            <div class="card-script-main ar-script">الدرجة الأولى</div>
             <div class="card-divider"></div>
             <div class="card-names-block">
-              <div class="card-person-name" id="c1Name">إنصاف موسى محمد</div>
+              <div class="card-person-name">إنصاف موسى محمد</div>
             </div>
-            <p class="card-meta" id="c1Body">مقامٌ رفيعٌ يليق بعمرٍ أُفني في التعليم</p>
+            <p class="card-meta">مقامٌ رفيعٌ يليق بعمرٍ أُفني في التعليم</p>
             <div class="card-divider"></div>
-            <p class="card-meta" id="c1Sign">توقيع الابن: عبدالواحد عماد الدين عبدالواحد</p>
+            <p class="card-meta">توقيع الابن: عبدالواحد عماد الدين عبدالواحد</p>
           </div>
         </article>
 
-        <article class="card-frame card-portrait" data-modal-target="card2" title="عرض البطاقة الثانية">
+        <article class="card-frame card-portrait">
           <div class="card-content">
             <span class="card-kicker">شرف الرسالة التربوية</span>
-            <p class="card-meta" id="c2Top">بكل إجلالٍ واعتزازٍ نحتفي ببلوغ</p>
+            <p class="card-meta">بكل إجلالٍ واعتزازٍ نحتفي ببلوغ</p>
             <div class="card-names-block">
-              <div class="card-person-name" id="c2Name">الأستاذة إنصاف موسى محمد</div>
+              <div class="card-person-name">الأستاذة إنصاف موسى محمد</div>
               <div class="card-amp">إلى</div>
-              <div class="card-person-name" id="c2Rank">الدرجة الأولى في التعليم</div>
+              <div class="card-person-name">الدرجة الأولى في التعليم</div>
             </div>
             <div class="card-divider"></div>
-            <p class="card-meta" id="c2Body">
+            <p class="card-meta">
               خمسة وثلاثون عاماً من العطاء الصادق في مدارس الوطن الحكومية وصولاً إلى الدرجة الأولى في التعليم
             </p>
             <div class="card-divider"></div>
-            <p class="card-meta" id="c2Sign">من ابنكِ: عبدالواحد عماد الدين عبدالواحد</p>
+            <p class="card-meta">من ابنكِ: عبدالواحد عماد الدين عبدالواحد</p>
           </div>
         </article>
 
         <div class="right-column">
-          <article class="card-frame card-landscape" data-modal-target="card3" title="عرض البطاقة الثالثة">
+          <article class="card-frame card-landscape">
             <div class="card-content">
               <div class="monogram-wrap">
                 <span class="monogram-back">إ</span>
                 <span class="monogram-slash">/</span>
                 <span class="monogram-front">م</span>
               </div>
-              <p class="card-meta" id="c3Text">إنصاف موسى محمد · الدرجة الأولى في التعليم</p>
+              <p class="card-meta">إنصاف موسى محمد · الدرجة الأولى في التعليم</p>
             </div>
           </article>
 
-          <article class="card-frame card-landscape" data-modal-target="card4" title="عرض البطاقة الرابعة">
+          <article class="card-frame card-landscape">
             <div class="card-content">
-              <div class="card-script-main ar-script" id="c4Title">أرفع بكِ رأسي</div>
-              <p class="card-meta" id="c4Body">فخري بك لا يحدّه كلام، وأنتِ تاجٌ على رأسي ما حييت</p>
-              <p class="card-meta" id="c4Sign">الأستاذة إنصاف موسى محمد</p>
+              <div class="card-script-main ar-script">أرفع بكِ رأسي</div>
+              <p class="card-meta">فخري بك لا يحدّه كلام، وأنتِ تاجٌ على رأسي ما حييت</p>
+              <p class="card-meta">الأستاذة إنصاف موسى محمد</p>
             </div>
           </article>
         </div>
@@ -701,7 +502,7 @@
     <section class="tribute-section" id="tributeSection">
       <div class="tribute-header">
         <h2>كلمات الاعتزاز والوفاء للأستاذة إنصاف موسى محمد</h2>
-        <p id="tributeIntro">
+        <p>
           من ابنكِ عبدالواحد عماد الدين عبدالواحد، تقديراً لمسيرةٍ امتدت خمسة وثلاثين عاماً في المدارس الحكومية بالسودان وتُوّجت بالدرجة الأولى في التعليم.
         </p>
       </div>
@@ -710,7 +511,7 @@
         <div class="tribute-card">
           <span class="tribute-tag">خمسة وثلاثون عاماً من الثبات</span>
           <h3>عمرٌ في خدمة العلم والوطن</h3>
-          <p id="tCard1">
+          <p>
             خمسة وثلاثون عاماً تنقلتِ فيها بين مدارسنا الحكومية في السودان حاملةً أمانة الكلمة والتربية بإخلاصٍ لا يعرف الفتور. لم يكن التعليم لديكِ مجرد وظيفة، بل رسالة حياة صبرتِ فيها على المشاق، وبقيتِ شامخةً بما غرستهِ من علمٍ وأخلاقٍ في صدور طلابكِ وطالباتكِ.
           </p>
         </div>
@@ -718,7 +519,7 @@
         <div class="tribute-card">
           <span class="tribute-tag">الدرجة الأولى في التعليم</span>
           <h3>استحقاقٌ يرفع الرأس عالياً</h3>
-          <p id="tCard2">
+          <p>
             إن نيلكِ الدرجة الأولى في التعليم في السودان ليس مجرد مرتبة إدارية أو مهنية، بل هو شهادة مستحقة على علوّ كعبكِ، وطول باعكِ، ونقاء سيرتكِ. كلما ذُكرتِ في محفلٍ أو مجلس، ارتفع رأسي فخراً بأنكِ أمي ومعلّمتي وقدوتي الأولى.
           </p>
         </div>
@@ -726,7 +527,7 @@
         <div class="tribute-card">
           <span class="tribute-tag">الأم والمربية القدوة</span>
           <h3>أثرٌ باقٍ في القلب والذاكرة</h3>
-          <p id="tCard3">
+          <p>
             علّمتني بحزمكِ اللطيف وحنانكِ العميق أن قيمة الإنسان بما يتركه من أثرٍ طيب، وأن المجد يُبنى بالصبر والصدق والعمل الدؤوب. أسأل الله أن يمدّ في عمركِ على طاعته وعافيته، وأن يجزيكِ عن كل حصةٍ ودرسٍ وموقفٍ خير الجزاء.
           </p>
         </div>
@@ -845,85 +646,6 @@
 
     document.querySelectorAll('.card-frame').forEach((card) => {
       card.insertAdjacentHTML('afterbegin', createBotanicalSVG('tl') + createBotanicalSVG('br'));
-    });
-
-    const defaults = {
-      honoree: 'الأستاذة إنصاف موسى محمد',
-      sender: 'عبدالواحد عماد الدين عبدالواحد',
-      years: '٣٥ عاماً في المدارس الحكومية · السودان',
-      rank: 'الدرجة الأولى في التعليم',
-      cardOne: 'مقامٌ رفيعٌ يليق بعمرٍ أُفني في التعليم',
-      cardTwo: 'خمسة وثلاثون عاماً من العطاء الصادق في مدارس الوطن الحكومية وصولاً إلى الدرجة الأولى في التعليم',
-      cardThree: 'فخري بك لا يحدّه كلام، وأنتِ تاجٌ على رأسي ما حييت'
-    };
-
-    const inputs = {
-      honoree: document.getElementById('inputHonoree'),
-      sender: document.getElementById('inputSender'),
-      years: document.getElementById('inputYears'),
-      rank: document.getElementById('inputRank'),
-      cardOne: document.getElementById('inputCardOne'),
-      cardTwo: document.getElementById('inputCardTwo'),
-      cardThree: document.getElementById('inputCardThree')
-    };
-
-    function stripHonorific(name) {
-      return name.replace(/^الأستاذة\s+/, '').trim() || 'إنصاف موسى محمد';
-    }
-
-    function applyValues() {
-      const honoree = inputs.honoree.value.trim() || defaults.honoree;
-      const cleanName = stripHonorific(honoree);
-      const sender = inputs.sender.value.trim() || defaults.sender;
-      const years = inputs.years.value.trim() || defaults.years;
-      const rank = inputs.rank.value.trim() || defaults.rank;
-      const c1Body = inputs.cardOne.value.trim() || defaults.cardOne;
-      const c2Body = inputs.cardTwo.value.trim() || defaults.cardTwo;
-      const c4Body = inputs.cardThree.value.trim() || defaults.cardThree;
-
-      document.getElementById('heroTitle').textContent = `إلى أمي وأستاذتي ${cleanName}`;
-      document.getElementById('heroSubtitle').textContent =
-        `في يوم تتويجك بـ${rank}، أرفع رأسي عالياً بما قضيته من خمسة وثلاثين عاماً في المدارس الحكومية بالسودان، زارعةً للعلم والوقار في نفوس أجيالٍ لا تُحصى، وبانيةً لبيتٍ يعتز باسمك في كل محفل.`;
-
-      document.getElementById('c1Years').textContent = years;
-      document.getElementById('c1Title').textContent = rank;
-      document.getElementById('c1Name').textContent = cleanName;
-      document.getElementById('c1Body').textContent = c1Body;
-      document.getElementById('c1Sign').textContent = `توقيع الابن: ${sender}`;
-
-      document.getElementById('c2Name').textContent = honoree;
-      document.getElementById('c2Rank').textContent = rank;
-      document.getElementById('c2Body').textContent = c2Body;
-      document.getElementById('c2Sign').textContent = `من ابنكِ: ${sender}`;
-
-      document.getElementById('c3Text').textContent = `${cleanName} · ${rank}`;
-      document.getElementById('c4Body').textContent = c4Body;
-      document.getElementById('c4Sign').textContent = honoree;
-
-      document.getElementById('tributeIntro').textContent =
-        `من ابنكِ ${sender}، تقديراً لمسيرةٍ امتدت خمسة وثلاثين عاماً في المدارس الحكومية بالسودان وتُوّجت بـ${rank}.`;
-
-      document.getElementById('tCard2').textContent =
-        `إن نيلكِ ${rank} في السودان ليس مجرد مرتبة إدارية أو مهنية، بل هو شهادة مستحقة على علوّ كعبكِ، وطول باعكِ، ونقاء سيرتكِ. كلما ذُكرتِ في محفلٍ أو مجلس، ارتفع رأسي فخراً بأنكِ أمي ومعلّمتي وقدوتي الأولى.`;
-    }
-
-    Object.values(inputs).forEach((input) => {
-      input.addEventListener('input', applyValues);
-    });
-
-    document.getElementById('toggleEditorBtn').addEventListener('click', () => {
-      document.getElementById('editorPanel').classList.toggle('open');
-    });
-
-    document.getElementById('resetDefaultsBtn').addEventListener('click', () => {
-      inputs.honoree.value = defaults.honoree;
-      inputs.sender.value = defaults.sender;
-      inputs.years.value = defaults.years;
-      inputs.rank.value = defaults.rank;
-      inputs.cardOne.value = defaults.cardOne;
-      inputs.cardTwo.value = defaults.cardTwo;
-      inputs.cardThree.value = defaults.cardThree;
-      applyValues();
     });
 
     const modalBackdrop = document.getElementById('modalBackdrop');
